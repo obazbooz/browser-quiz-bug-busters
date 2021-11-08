@@ -1,6 +1,10 @@
 export const createSelectAnswerHandler = (question) => {
+
     return (event) => {
-        console.log(event);
-        question.selected = event.target.id;
+        for (const key in question.answers) {
+          if (question.answers[key] === event.target.textContent){
+            question.selected = key;
+          }
+        }
     }
 }
