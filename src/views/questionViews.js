@@ -3,6 +3,7 @@
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
+import { createSelectAnswerHandler } from '../handlers/answerHandlers.js';
 
 /**
  * Create an Answer element
@@ -27,6 +28,8 @@ export const createQuestionElement = (question) => {
 
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(question.answers[answerKey]);
+
+    answer.addEventListener('click', createSelectAnswerHandler(question));
     answerContainer.appendChild(answer);
   }
 
