@@ -11,3 +11,11 @@
   max-height: 80vh;
   overflow: auto;
 }
+
+.correctChoice {
+  background-color: green;
+}
+
+.incorrectChoice {
+ background-color: red;
+}
