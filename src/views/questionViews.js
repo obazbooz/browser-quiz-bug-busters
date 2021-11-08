@@ -8,9 +8,10 @@ import { createSelectAnswerHandler } from '../handlers/answerHandlers.js';
 /**
  * Create an Answer element
  */
-export const createAnswerElement = (answerText) => {
+export const createAnswerElement = (answerKey, answerText) => {
   const answerElement = createDOMElement('li');
   answerElement.innerText = answerText;
+  answerElement.setAttribute('data-answer-key', answerKey);
 
   return answerElement;
 };
@@ -27,7 +28,7 @@ export const createQuestionElement = (question) => {
   const answerContainer = createDOMElement('ol');
 
   for (const answerKey in question.answers) {
-    const answer = createAnswerElement(question.answers[answerKey]);
+    const answer = createAnswerElement(answerKey, question.answers[answerKey]);
 
     answer.addEventListener('click', createSelectAnswerHandler(question));
     answerContainer.appendChild(answer);
