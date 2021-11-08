@@ -1,6 +1,9 @@
+import { createQuestionElement } from "../views/questionViews.js";
+
 export const createSelectAnswerHandler = (question) => {
 
     return (event) => {
+      const answerLi =  document.querySelectorAll('li');
       // user can select an answer for each question. 
         for (const key in question.answers) {
           if (question.answers[key] === event.target.textContent){
@@ -13,9 +16,14 @@ export const createSelectAnswerHandler = (question) => {
         }
         else {
           event.target.classList.add('incorrectChoice');
+         
+          for (const element of answerLi){
+            if (element .textContent === question.answers[question.correct]){
+              element.classList.add('correctChoice');
+            }
+          }
         }
-
+      }
     }
-}
 
 
