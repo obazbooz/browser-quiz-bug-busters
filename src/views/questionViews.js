@@ -16,6 +16,8 @@ export const createAnswerElement = (answerKey, answerText) => {
   return answerElement;
 };
 
+
+
 /**
  * Create a full question element
  */
@@ -24,9 +26,7 @@ export const createQuestionElement = (question) => {
   const title = createDOMElement('h1');
   title.innerText = question.text;
   container.appendChild(title);
-
   const answerContainer = createDOMElement('ol');
-
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(answerKey, question.answers[answerKey]);
 
