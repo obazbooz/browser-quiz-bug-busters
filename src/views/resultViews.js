@@ -15,12 +15,9 @@ export const showFinalResult = () => {
 };
 
 // calculated score and change the label of next question button to Show Score
-export const showQuizResult = () => {
-  showFinalResult();
-  if (quizData.questions.length === quizData.currentQuestionIndex) {
-    clearDOMElement(getDOMElement(NEXT_QUESTION_BUTTON_ID));
-    const showResultButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
-    showResultButton.textContent = 'Show Score';
-    showResultButton.addEventListener('click', showFinalResult);
-  }
+export const showResultButton = () => {
+  clearDOMElement(getDOMElement(NEXT_QUESTION_BUTTON_ID));
+  const showResultButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+  showResultButton.textContent = 'Show Score';
+  showResultButton.addEventListener('click', showFinalResult);
 };
