@@ -31,3 +31,5 @@ export const createDOMElement = (tag, options) => {
 export const getDOMElement = (id) => {
   return document.getElementById(id);
 };
+
+

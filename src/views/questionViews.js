@@ -4,6 +4,7 @@ import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { createSelectAnswerHandler } from '../handlers/answerHandlers.js';
+import { showRealTimeResult } from './scoreView.js';
 
 /**
  * Create an Answer element
@@ -16,13 +17,12 @@ export const createAnswerElement = (answerKey, answerText) => {
   return answerElement;
 };
 
-
-
 /**
  * Create a full question element
  */
 export const createQuestionElement = (question) => {
   const container = createDOMElement('div');
+  container.appendChild(showRealTimeResult());
   const title = createDOMElement('h1');
   title.innerText = question.text;
   container.appendChild(title);
@@ -52,3 +52,5 @@ export const createNextQuestionButtonElement = () => {
 
   return buttonElement;
 };
+
+

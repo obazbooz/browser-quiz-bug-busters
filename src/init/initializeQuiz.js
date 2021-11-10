@@ -6,19 +6,7 @@ import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { createNextQuestionButtonElement } from '../views/questionViews.js';
 import { quizData } from '../data.js';
 
-// Step 1 : created realTimeResult to catch h3 element "score"
-let workOnce = true;
-export let realTimeResult;
 
-// Step 2 : initialized realTimeResult and returns realTimeResult
-export const showRealTimeResult = () => {
-  const realTimeResult = createDOMElement('h3');
-  if (workOnce) {
-    realTimeResult.textContent = `Your score is 0 out of ${quizData.questions.length}`;
-    workOnce = false;
-  }
-  return realTimeResult;
-}
 
 const initializeQuiz = () => {
   quizData.currentQuestionIndex = 0;
@@ -30,9 +18,7 @@ const initializeQuiz = () => {
 const setupQuizHTML = () => {
   const userInterfaceContainer = getDOMElement('user-interface');
   const quizContainer = createDOMElement('div', { id: QUIZ_CONTAINER_ID });
-  // Step 3 : append score element above quizContainer
-  realTimeResult = showRealTimeResult();
-  quizContainer.appendChild(realTimeResult);
+
 
   const questionContainer = createDOMElement('div', {
     id: QUESTION_CONTAINER_ID,
