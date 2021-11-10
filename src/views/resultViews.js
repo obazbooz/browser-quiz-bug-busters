@@ -7,11 +7,11 @@ import { quizData } from '../data.js';
 // handler function to clear quiz container and create  and append a new header
 // to show our quiz result
 export const showFinalResult = () => {
-  clearDOMElement(getDOMElement(QUIZ_CONTAINER_ID));
+  const quizContainer = getDOMElement(QUIZ_CONTAINER_ID);
+  clearDOMElement(quizContainer);
   const result = getScoreElement();
-  //result.textContent = `Your score is ${score} out of ${numOfQuestions}`;
-  const container = getDOMElement(QUIZ_CONTAINER_ID);
-  container.appendChild(result);
+
+  quizContainer.appendChild(result);
 };
 
 // calculated score and change the label of next question button to Show Score
