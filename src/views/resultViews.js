@@ -1,14 +1,14 @@
 import { clearDOMElement } from '../utils/DOMUtils.js';
 import { getDOMElement } from '../utils/DOMUtils.js';
 import { NEXT_QUESTION_BUTTON_ID, QUIZ_CONTAINER_ID } from '../constants.js';
-import { showResult } from './scoreView.js';
+import { getScoreElement } from './scoreView.js';
 import { quizData } from '../data.js';
 
 // handler function to clear quiz container and create  and append a new header
 // to show our quiz result
 export const showFinalResult = () => {
   clearDOMElement(getDOMElement(QUIZ_CONTAINER_ID));
-  const result = showResult();
+  const result = getScoreElement();
   //result.textContent = `Your score is ${score} out of ${numOfQuestions}`;
   const container = getDOMElement(QUIZ_CONTAINER_ID);
   container.appendChild(result);

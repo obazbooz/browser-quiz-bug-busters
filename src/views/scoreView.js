@@ -9,14 +9,14 @@ import { getDOMElement } from '../utils/DOMUtils.js';
 
 // Step 4 : we reach realTimeResult from ../init/initializeQuiz.js
 // showRealTimeScore updates real time score
-const showScore = (numOfQuestions, score) => {
+const getScoreText = (numOfQuestions, score) => {
   return `Your score is ${score} out of ${numOfQuestions}`;
 };
 // Step 2 : initialized realTimeResult and returns realTimeResult
 
-export const showResult = () => {
+export const getScoreElement = () => {
   const result = createDOMElement('h3');
-  result.textContent = showScore(
+  result.textContent = getScoreText(
     quizData.questions.length,
     calculateScore(quizData.questions)
   );

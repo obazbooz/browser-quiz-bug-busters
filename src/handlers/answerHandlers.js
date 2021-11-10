@@ -1,14 +1,16 @@
 // import { showQuizResult } from "../views/resultViews.js";
 // import { quizData } from "../data.js";
 
+import { SCORE_CONTAINER_ID } from '../constants.js';
+import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
+import { getScoreElement } from '../views/scoreView.js';
 
 export const createSelectAnswerHandler = (question) => {
-
   return (event) => {
     // user can only choose once
     if (question.selected === null) {
       const answerLi = document.querySelectorAll('li');
-      // user can select an answer for each question. 
+      // user can select an answer for each question.
       for (const key in question.answers) {
         if (key === event.target.getAttribute('data-answer-key')) {
           question.selected = key;
@@ -25,5 +27,9 @@ export const createSelectAnswerHandler = (question) => {
       }
       // showQuizResult(quizData.questions, quizData.currentQuestionIndex + 1);
     }
-  }
+
+    const scoreContainer = getDOMElement(SCORE_CONTAINER_ID);
+    clearDOMElement(scoreContainer);
+    scoreContainer.appendChild(getScoreElement());
+  };
 };
