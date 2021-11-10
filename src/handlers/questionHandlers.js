@@ -4,6 +4,7 @@ import { QUESTION_CONTAINER_ID } from '../constants.js';
 import { createQuestionElement } from '../views/questionViews.js';
 import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
+import { showQuizResult } from '../views/resultViews.js';
 
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
@@ -15,8 +16,16 @@ export const showCurrentQuestion = () => {
   questionContainer.appendChild(questionDOM);
 };
 
-export const handleNextQuestion = () => {
-  quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
-  showCurrentQuestion();
+// bug here
+export const handleNextQuestion = () => {
+if(quizData.currentQuestionIndex < quizData.questions.length){
+    quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+    showCurrentQuestion();
+    console.log(quizData.currentQuestionIndex);
+}else if (quizData.questions.length === quizData.currentQuestionIndex ){
+    showQuizResult();
+    console.log(quizData.currentQuestionIndex);
+  }
+
 };

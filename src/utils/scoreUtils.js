@@ -1,3 +1,5 @@
+
+
 export const calculateScore = (questions) => {
   let scoreCounter = 0;
   for (const question of questions) {

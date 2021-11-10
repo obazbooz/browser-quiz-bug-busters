@@ -1,5 +1,6 @@
-import { showQuizResult } from "./resultHandlers.js";
-import { quizData } from "../data.js";
+// import { showQuizResult } from "../views/resultViews.js";
+// import { quizData } from "../data.js";
+
 
 export const createSelectAnswerHandler = (question) => {
 
@@ -22,10 +23,7 @@ export const createSelectAnswerHandler = (question) => {
           element.classList.add('correctChoice');
         }
       }
-      showQuizResult(quizData.questions, quizData.currentQuestionIndex + 1);
+      // showQuizResult(quizData.questions, quizData.currentQuestionIndex + 1);
     }
   }
-}
-
-
-
+};
