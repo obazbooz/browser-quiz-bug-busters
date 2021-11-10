@@ -4,6 +4,7 @@ import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { createSelectAnswerHandler } from '../handlers/answerHandlers.js';
+import { getScoreElement } from './scoreView.js';
 
 /**
  * Create an Answer element
@@ -21,21 +22,19 @@ export const createAnswerElement = (answerKey, answerText) => {
  */
 export const createQuestionElement = (question) => {
   const container = createDOMElement('div');
+
   const title = createDOMElement('h1');
   title.innerText = question.text;
   container.appendChild(title);
-
   const answerContainer = createDOMElement('ol');
 
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(answerKey, question.answers[answerKey]);
-
+    // shows correct or incorrect answer
     answer.addEventListener('click', createSelectAnswerHandler(question));
     answerContainer.appendChild(answer);
   }
-
   container.appendChild(answerContainer);
-
   return container;
 };
 

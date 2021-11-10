@@ -11,3 +11,4 @@
 export const QUESTION_CONTAINER_ID = 'question-container';
 export const QUIZ_CONTAINER_ID = 'quiz-container';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
+export const SCORE_CONTAINER_ID = 'score-container';
