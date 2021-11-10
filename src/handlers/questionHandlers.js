@@ -16,16 +16,14 @@ export const showCurrentQuestion = () => {
   questionContainer.appendChild(questionDOM);
 };
 
-
 // bug here
 export const handleNextQuestion = () => {
-if(quizData.currentQuestionIndex < quizData.questions.length){
+  if (quizData.currentQuestionIndex < quizData.questions.length - 1) {
     quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
+    //console.log(quizData.currentQuestionIndex);
     showCurrentQuestion();
-    console.log(quizData.currentQuestionIndex);
-}else if (quizData.questions.length === quizData.currentQuestionIndex ){
+  } else if (quizData.questions.length === quizData.currentQuestionIndex + 1) {
     showQuizResult();
     console.log(quizData.currentQuestionIndex);
   }
-
 };
