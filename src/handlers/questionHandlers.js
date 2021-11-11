@@ -6,17 +6,16 @@ import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 import { showFinalResult, showResultButton } from '../views/resultViews.js';
 
+
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
-
   const questionDOM = createQuestionElement(currentQuestion);
-
   const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
   clearDOMElement(questionContainer);
   questionContainer.appendChild(questionDOM);
+
 };
 
-// bug here
 export const handleNextQuestion = () => {
   quizData.currentQuestionIndex++;
   if (quizData.questions.length === quizData.currentQuestionIndex) {
@@ -24,7 +23,6 @@ export const handleNextQuestion = () => {
   } else {
     showCurrentQuestion();
   }
-
   if (quizData.currentQuestionIndex === quizData.questions.length - 1) {
     showResultButton();
   }

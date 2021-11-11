@@ -25,7 +25,6 @@ export const createSelectAnswerHandler = (question) => {
           element.classList.add('correctChoice');
         }
       }
-      // showQuizResult(quizData.questions, quizData.currentQuestionIndex + 1);
     }
 
     const scoreContainer = getDOMElement(SCORE_CONTAINER_ID);
