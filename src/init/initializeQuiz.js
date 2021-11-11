@@ -3,7 +3,9 @@
 import {
   QUESTION_CONTAINER_ID,
   QUIZ_CONTAINER_ID,
-  SCORE_CONTAINER_ID, HINT_CONTAINER_ID
+  SCORE_CONTAINER_ID,
+  HINT_CONTAINER_ID,
+  TIMER_DO
 } from '../constants.js';
 import { showCurrentQuestion } from '../handlers/questionHandlers.js';
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
@@ -29,17 +31,18 @@ const setupQuizHTML = () => {
     id: SCORE_CONTAINER_ID,
   });
 
+  const timerDo = createDOMElement('div', { id: TIMER_DO });
+  quizContainer.appendChild(timerDo);
+
   const hintContainer = createDOMElement('div', { id: HINT_CONTAINER_ID });
 
   quizContainer.appendChild(scoreContainer);
   questionContainer.appendChild(hintContainer);
   quizContainer.appendChild(questionContainer);
 
-
   const nextQuestionButton = createNextQuestionButtonElement();
   quizContainer.appendChild(nextQuestionButton);
 
-  console.log(quizContainer);
   userInterfaceContainer.appendChild(quizContainer);
 };
 

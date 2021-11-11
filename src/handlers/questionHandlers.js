@@ -5,7 +5,7 @@ import { createQuestionElement } from '../views/questionViews.js';
 import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 import { showFinalResult, showResultButton } from '../views/resultViews.js';
-
+import { TimerOnFn } from '../views/timer.js';
 
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
@@ -13,7 +13,7 @@ export const showCurrentQuestion = () => {
   const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
   clearDOMElement(questionContainer);
   questionContainer.appendChild(questionDOM);
-
+  TimerOnFn();
 };
 
 export const handleNextQuestion = () => {

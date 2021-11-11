@@ -4,6 +4,7 @@
 import { SCORE_CONTAINER_ID } from '../constants.js';
 import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { getScoreElement } from '../views/scoreView.js';
+import { timerOffFn } from '../views/timer.js';
 
 export const createSelectAnswerHandler = (question) => {
   return (event) => {
@@ -19,6 +20,7 @@ export const createSelectAnswerHandler = (question) => {
       // The user can know which questions are correct and incorrect.
       if (question.selected !== question.correct) {
         event.target.classList.add('incorrectChoice');
+        timerOffFn();
       }
       for (const element of answerLi) {
         if (element.getAttribute('data-answer-key') === question.correct) {
