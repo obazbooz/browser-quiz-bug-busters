@@ -20,8 +20,8 @@ export const createSelectAnswerHandler = (question) => {
       // The user can know which questions are correct and incorrect.
       if (question.selected !== question.correct) {
         event.target.classList.add('incorrectChoice');
-        timerOffFn();
       }
+      timerOffFn();
       for (const element of answerLi) {
         if (element.getAttribute('data-answer-key') === question.correct) {
           element.classList.add('correctChoice');

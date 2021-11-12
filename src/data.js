@@ -25,7 +25,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      timer: 5,
+      timer: 10,
       links: [
         {
           text: 'javascript.info',
@@ -70,7 +70,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      timer: 15,
+      timer: 10,
       links: [
         {
           text: 'javascript.info',
@@ -92,7 +92,7 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      timer: 5,
+      timer: 10,
       links: [
         {
           text: 'javascript.info',
@@ -137,7 +137,7 @@ export const quizData = {
       },
       correct: 'b',
       selected: null,
-      timer: 15,
+      timer: 10,
       links: [
         {
           text: 'javascript.info',
@@ -159,7 +159,7 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      timer: 5,
+      timer: 10,
       links: [
         {
           text: 'javascript.info',
@@ -206,7 +206,7 @@ export const quizData = {
       },
       correct: 'a',
       selected: null,
-      timer: 15,
+      timer: 10,
       links: [
         {
           text: 'javascript.info',
@@ -229,7 +229,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      timer: 5,
+      timer: 10,
       links: [
         {
           text: 'javascript.info',

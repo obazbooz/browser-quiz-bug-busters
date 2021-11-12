@@ -1,13 +1,19 @@
 'use strict';
 
 import {
-  NEXT_QUESTION_BUTTON_ID, GET_A_HINT_BUTTON_ID,
-  RESOURCE_CONTAINER_ELEMENT_ID, HINT_CONTAINER_ID
+  NEXT_QUESTION_BUTTON_ID,
+  GET_A_HINT_BUTTON_ID,
+  RESOURCE_CONTAINER_ELEMENT_ID,
+  HINT_CONTAINER_ID,
 } from '../constants.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
-import { createDOMElement, getDOMElement, clearDOMElement } from '../utils/DOMUtils.js';
+import {
+  createDOMElement,
+  getDOMElement,
+  clearDOMElement,
+} from '../utils/DOMUtils.js';
 import { createSelectAnswerHandler } from '../handlers/answerHandlers.js';
-import { showHint } from "../handlers/hintHandlers.js";
+import { showHint } from '../handlers/hintHandlers.js';
 
 /**
  * Create an Answer element
@@ -34,7 +40,7 @@ export const createResourceElement = (resourceText, resourceHref) => {
   resourceElement.setAttribute('target', '_blank');
   resourceListElement.appendChild(resourceElement);
   return resourceListElement;
-}
+};
 
 /**
  * Create a full question element
@@ -47,6 +53,7 @@ export const createQuestionElement = (question) => {
   container.appendChild(title);
 
   const answerContainer = createDOMElement('ol');
+  answerContainer.setAttribute('type', 'none');
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(answerKey, question.answers[answerKey]);
     // shows correct or incorrect answer
@@ -67,8 +74,6 @@ export const createQuestionElement = (question) => {
   hintButton.addEventListener('click', showHint);
   clearDOMElement(getDOMElement(HINT_CONTAINER_ID));
   hintContainer.appendChild(hintButton);
-
-
 
   // STEP 2: creates and initialize list of resources with ul
   const resourceContainer = createDOMElement('ul');
@@ -98,4 +103,3 @@ export const createNextQuestionButtonElement = () => {
 
   return buttonElement;
 };
-
