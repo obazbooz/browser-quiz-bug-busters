@@ -20,5 +20,6 @@ export const getScoreElement = () => {
     quizData.questions.length,
     calculateScore(quizData.questions)
   );
+
   return result;
 };

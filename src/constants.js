@@ -15,3 +15,4 @@ export const SCORE_CONTAINER_ID = 'score-container';
 export const GET_A_HINT_BUTTON_ID = 'get-a-hint-button';
 export const RESOURCE_CONTAINER_ELEMENT_ID = 'resource-list-element';
 export const HINT_CONTAINER_ID = 'hint-container';
+export const TIMER_ID = 'timer-id';
