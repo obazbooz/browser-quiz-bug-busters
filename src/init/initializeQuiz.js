@@ -32,7 +32,7 @@ const setupQuizHTML = () => {
     id: SCORE_CONTAINER_ID,
   });
 
-  const timerDo = createDOMElement('div', { id: TIMER_DO });
+  const timerDo = createDOMElement('div', { id: TIMER_ID });
   quizContainer.appendChild(timerDo);
 
   const hintContainer = createDOMElement('div', { id: HINT_CONTAINER_ID });
