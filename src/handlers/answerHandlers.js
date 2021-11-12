@@ -5,6 +5,7 @@ import { SCORE_CONTAINER_ID } from '../constants.js';
 import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { getScoreElement } from '../views/scoreView.js';
 import { timerOffFn } from '../views/timer.js';
+import { showNumOfQues } from '../views/questionViews.js';
 
 export const createSelectAnswerHandler = (question) => {
   return (event) => {
@@ -31,6 +32,8 @@ export const createSelectAnswerHandler = (question) => {
 
     const scoreContainer = getDOMElement(SCORE_CONTAINER_ID);
     clearDOMElement(scoreContainer);
+
     scoreContainer.appendChild(getScoreElement());
+    // scoreContainer.appendChild(showNumOfQues());
   };
 };

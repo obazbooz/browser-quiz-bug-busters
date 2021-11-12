@@ -5,6 +5,7 @@ import {
   GET_A_HINT_BUTTON_ID,
   RESOURCE_CONTAINER_ELEMENT_ID,
   HINT_CONTAINER_ID,
+  SCORE_CONTAINER_ID,
 } from '../constants.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
 import {
@@ -14,6 +15,8 @@ import {
 } from '../utils/DOMUtils.js';
 import { createSelectAnswerHandler } from '../handlers/answerHandlers.js';
 import { showHint } from '../handlers/hintHandlers.js';
+import { getNumOfQues } from '../utils/questionUtil.js';
+import { quizData } from '../data.js';
 
 /**
  * Create an Answer element
@@ -102,4 +105,10 @@ export const createNextQuestionButtonElement = () => {
   buttonElement.addEventListener('click', nextQuestion);
 
   return buttonElement;
+};
+
+export const showNumOfQues = () => {
+  const question = createDOMElement('h3');
+  question.textContent = getNumOfQues(quizData);
+  return question;
 };

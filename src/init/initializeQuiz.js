@@ -12,6 +12,7 @@ import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { createNextQuestionButtonElement } from '../views/questionViews.js';
 import { quizData } from '../data.js';
 
+
 const initializeQuiz = () => {
   quizData.currentQuestionIndex = 0;
 

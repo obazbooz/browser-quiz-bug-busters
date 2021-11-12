@@ -6,12 +6,14 @@ import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 import { showFinalResult, showResultButton } from '../views/resultViews.js';
 import { TimerOnFn } from '../views/timer.js';
+import { showNumOfQues } from '../views/questionViews.js';
 
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const questionDOM = createQuestionElement(currentQuestion);
   const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
   clearDOMElement(questionContainer);
+  questionContainer.appendChild(showNumOfQues());
   questionContainer.appendChild(questionDOM);
   TimerOnFn();
 };
