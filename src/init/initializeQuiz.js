@@ -5,7 +5,7 @@ import {
   QUIZ_CONTAINER_ID,
   SCORE_CONTAINER_ID,
   HINT_CONTAINER_ID,
-  TIMER_DO
+  TIMER_DO,
 } from '../constants.js';
 import { showCurrentQuestion } from '../handlers/questionHandlers.js';
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';

@@ -7,8 +7,15 @@ body {
   margin: auto;
   background: #181620;
   perspective: 500px;
+   background-image: url(./Images/pex.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+a{
+  text-decoration: none;
+}
 main {
   display: flex;
   flex-direction: column;
@@ -36,55 +43,55 @@ button {
   mix-blend-mode: color-dodge;
   perspective: 500px;
   transform-style: preserve-3d;
+}
 
-  &:before,
-  &:after {
-    --z: 0px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    content: '';
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    mix-blend-mode: inherit;
-    border-radius: inherit;
-    transform-style: preserve-3d;
-    transform: translate3d(
-      calc(var(--z) * 0px),
-      calc(var(--z) * 0px),
-      calc(var(--z) * 0px)
-    );
-  }
+button:before,
+button:after {
+  --z: 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  mix-blend-mode: inherit;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  transform: translate3d(
+    calc(var(--z) * 0px),
+    calc(var(--z) * 0px),
+    calc(var(--z) * 0px)
+  );
+}
 
-  span {
-    mix-blend-mode: none;
-    display: block;
-  }
+span {
+  mix-blend-mode: none;
+  display: block;
+}
 
-  &:after {
-    background-color: #5d00ff;
-  }
+button:after {
+  background-color: #5d00ff;
+}
 
-  &:before {
-    background-color: #ff1731;
-  }
+button:before {
+  background-color: #ff1731;
+}
 
-  &:hover {
-    background-color: #fff65b;
-    transition: background 0.3s 0.1s;
-  }
+button:hover {
+  background-color: #fff65b;
+  transition: background 0.3s 0.1s;
+}
 
-  &:hover:before {
-    --z: 0.04;
-    animation: translateWobble 2.2s ease forwards;
-  }
+button:hover:before {
+  --z: 0.04;
+  animation: translateWobble 2.2s ease forwards;
+}
 
-  &:hover:after {
-    --z: -0.06;
-    animation: translateWobble 2.2s ease forwards;
-  }
+button:hover:after {
+  --z: -0.06;
+  animation: translateWobble 2.2s ease forwards;
 }
 
 @keyframes rotateAngle {

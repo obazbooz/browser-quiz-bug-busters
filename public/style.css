@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 :root {
+  --white-color: white;
+  --border-color: #422202;
   --background-color: #57391b8e;
-  --shadow-color: #f1d49b;
-  --question-color: #130000;
-  --btn-color: #43281e;
   --hover-color: rgba(151, 151, 255, 0.349);
   --hoverLi-color: #43281e;
+  --score-color: #f1d49b;
+  --btn-color: #43281e;
+  --correct-color: #a39f20;
+  --wrong-color: #a32025;
 }
 
+/* utilities */
 body {
   box-sizing: border-box;
   margin: 0;
@@ -22,19 +26,27 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.correctChoice {
+  background-color: var(--correct-color);
+}
 
+.incorrectChoice {
+  background-color: var(--wrong-color);
+}
+
+/* quiz page */
 #quiz-container {
-  color: white;
+  color: var(--white-color);
   margin: 0;
   width: 800px;
-  border: 1px solid #422202;
+  border: 1px solid var(--border-color);
   /* border-radius: 10px; */
-  box-shadow: 3px 3px 3px 3px #422201;
+  box-shadow: 3px 3px 3px 3px var(--border-color);
   background-color: var(--background-color);
 }
 
 #timer-do {
-  color: white;
+  color: var(--white-color);
   border-radius: 50%;
   box-shadow: 1px 1px 3px var(--hoverLi-color);
   padding: 15px 32px;
@@ -49,7 +61,7 @@ body {
 #score-container {
   font-size: 0.9rem bold;
   margin-top: 1rem;
-  color: var(--shadow-color);
+  color: var(--score-color);
 }
 
 h1 {
@@ -64,16 +76,16 @@ ol {
   width: 90%;
 }
 ol li {
-  /* border: 1px solid var(); */
-  /* box-shadow: 2px 2px 3px (--shadow-color) ; */
   padding: 1px;
   margin: 10px;
   font-size: 1.2rem;
   font-weight: bold;
-  color: white;
+  color: var(--white-color);
 }
 ol li:hover {
-  background-color: var(--hoverLi-color);
+  transition: 0.3s ease-in-out;
+  margin-right: 1.2rem;
+  transform: scale(1.15);
 }
 
 ul {
@@ -86,7 +98,7 @@ ul li {
   margin: 0 1rem;
 }
 ul li a {
-  color: #ffffff;
+  color: var(--white-color);
   width: 50%;
   text-decoration: none;
   text-align: center;
@@ -96,7 +108,7 @@ ul li a {
   border-radius: 5px;
 }
 a:hover {
-  color: white;
+  color: var(--white-color);
   background-color: var(--btn-color);
   font-weight: bold;
   margin-right: 0.1rem;
@@ -112,7 +124,7 @@ a:hover {
   border-radius: 0.12em;
   text-decoration: none;
   font-weight: bold;
-  color: white;
+  color: var(--white-color);
   text-align: center;
   transition: all 0.2s;
   margin: 1rem 0;
@@ -122,13 +134,12 @@ a:hover {
   padding: 0.35em 1.6em;
 }
 
-#get-a-hint-button:hover {
-  color: white;
-  background-color: rgba(151, 151, 255, 0.349);
-}
+#get-a-hint-button:hover,
 #next-question-button:hover {
-  color: white;
+  color: var(--white-color);
   background-color: rgba(151, 151, 255, 0.349);
+  transform: scale(1.15);
+  transition: 0.3s ease-in-out;
 }
 
 .centered {
@@ -146,10 +157,4 @@ a:hover {
   overflow: auto;
 }
 
-.correctChoice {
-  background-color: #a39f20;
-}
-
-.incorrectChoice {
-  background-color: #a32025;
-}
+/* landing page */
