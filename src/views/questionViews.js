@@ -24,6 +24,7 @@ import { quizData } from '../data.js';
 export const createAnswerElement = (answerKey, answerText) => {
   const answerElement = createDOMElement('li');
   answerElement.innerText = answerText;
+  // what is Data-answer-key
   answerElement.setAttribute('data-answer-key', answerKey);
   return answerElement;
 };
@@ -39,7 +40,6 @@ export const createResourceElement = (resourceText, resourceHref) => {
   const resourceElement = createDOMElement('a');
   resourceElement.innerText = resourceText;
   resourceElement.setAttribute('href', resourceHref);
-  resourceElement.setAttribute('alt', resourceText);
   resourceElement.setAttribute('target', '_blank');
   resourceListElement.appendChild(resourceElement);
   return resourceListElement;
@@ -50,13 +50,11 @@ export const createResourceElement = (resourceText, resourceHref) => {
  */
 export const createQuestionElement = (question) => {
   const container = createDOMElement('div');
-
   const title = createDOMElement('h1');
   title.innerText = question.text;
   container.appendChild(title);
 
   const answerContainer = createDOMElement('ol');
-  answerContainer.setAttribute('type', 'none');
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(answerKey, question.answers[answerKey]);
     // shows correct or incorrect answer
@@ -75,7 +73,8 @@ export const createQuestionElement = (question) => {
 
   hintButton.innerText = 'Show Hints';
   hintButton.addEventListener('click', showHint);
-  clearDOMElement(getDOMElement(HINT_CONTAINER_ID));
+  // prevent hit-button duplication
+  clearDOMElement(hintContainer);
   hintContainer.appendChild(hintButton);
 
   // STEP 2: creates and initialize list of resources with ul

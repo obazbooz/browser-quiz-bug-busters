@@ -8,6 +8,7 @@ import { showFinalResult, showResultButton } from '../views/resultViews.js';
 import { TimerOnFn } from '../views/timer.js';
 import { showNumOfQues } from '../views/questionViews.js';
 
+//supportive function
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
   const questionDOM = createQuestionElement(currentQuestion);
@@ -18,11 +19,10 @@ export const showCurrentQuestion = () => {
   TimerOnFn();
 };
 
+// to show current question or final result
 export const handleNextQuestion = () => {
   quizData.currentQuestionIndex++;
-  if (quizData.questions.length === quizData.currentQuestionIndex) {
-    showFinalResult();
-  } else {
+  if (quizData.questions.length !== quizData.currentQuestionIndex) {
     showCurrentQuestion();
   }
   if (quizData.currentQuestionIndex === quizData.questions.length - 1) {

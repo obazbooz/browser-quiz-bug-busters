@@ -1,18 +1,17 @@
-// import { showQuizResult } from "../views/resultViews.js";
-// import { quizData } from "../data.js";
-
 import { SCORE_CONTAINER_ID } from '../constants.js';
 import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { getScoreElement } from '../views/scoreView.js';
 import { timerOffFn } from '../views/timer.js';
-import { showNumOfQues } from '../views/questionViews.js';
+
+// This code always run even if the user did not select an
+//answer and goes to next question directly
 
 export const createSelectAnswerHandler = (question) => {
   return (event) => {
-    // user can only choose once
     if (question.selected === null) {
       const answerLi = document.querySelectorAll('li');
       // user can select an answer for each question.
+      // Initialize the attribute data-answer-key with answers keys
       for (const key in question.answers) {
         if (key === event.target.getAttribute('data-answer-key')) {
           question.selected = key;
@@ -31,9 +30,9 @@ export const createSelectAnswerHandler = (question) => {
     }
 
     const scoreContainer = getDOMElement(SCORE_CONTAINER_ID);
+    // we used this clear to avoid the duplication of the score element
     clearDOMElement(scoreContainer);
 
     scoreContainer.appendChild(getScoreElement());
-    // scoreContainer.appendChild(showNumOfQues());
   };
 };

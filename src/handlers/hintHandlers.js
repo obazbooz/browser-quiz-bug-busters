@@ -1,8 +1,8 @@
-import { RESOURCE_CONTAINER_ELEMENT_ID } from "../constants.js";
-import { getDOMElement } from "../utils/DOMUtils.js";
-import { GET_A_HINT_BUTTON_ID } from "../constants.js";
+import { RESOURCE_CONTAINER_ELEMENT_ID } from '../constants.js';
+import { getDOMElement } from '../utils/DOMUtils.js';
+import { GET_A_HINT_BUTTON_ID } from '../constants.js';
 
-// STEP 4: handler function to show and/or hide sources
+// STEP 4: handler function to show and/or hide resources
 export const showHint = () => {
   const resourceContainerElement = getDOMElement(RESOURCE_CONTAINER_ELEMENT_ID);
   if (resourceContainerElement.style.display === 'none') {
@@ -12,4 +12,4 @@ export const showHint = () => {
     resourceContainerElement.style.display = 'none';
     getDOMElement(GET_A_HINT_BUTTON_ID).innerText = 'Show Hints';
   }
-}
+};
