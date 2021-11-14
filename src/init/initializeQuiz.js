@@ -12,10 +12,8 @@ import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { createNextQuestionButtonElement } from '../views/questionViews.js';
 import { quizData } from '../data.js';
 
-
 const initializeQuiz = () => {
   quizData.currentQuestionIndex = 0;
-
   setupQuizHTML();
   showCurrentQuestion();
 };
@@ -23,28 +21,21 @@ const initializeQuiz = () => {
 const setupQuizHTML = () => {
   const userInterfaceContainer = getDOMElement('user-interface');
   const quizContainer = createDOMElement('div', { id: QUIZ_CONTAINER_ID });
-
   const questionContainer = createDOMElement('div', {
     id: QUESTION_CONTAINER_ID,
   });
-
-  const scoreContainer = createDOMElement('div', {
-    id: SCORE_CONTAINER_ID,
-  });
-
-  const timerDo = createDOMElement('div', { id: TIMER_ID });
-  quizContainer.appendChild(timerDo);
-
+  const timerElement = createDOMElement('div', { id: TIMER_ID });
+  const scoreContainer = createDOMElement('div', { id: SCORE_CONTAINER_ID });
   const hintContainer = createDOMElement('div', { id: HINT_CONTAINER_ID });
-
-  quizContainer.appendChild(scoreContainer);
-  questionContainer.appendChild(hintContainer);
-  quizContainer.appendChild(questionContainer);
-
   const nextQuestionButton = createNextQuestionButtonElement();
-  quizContainer.appendChild(nextQuestionButton);
 
   userInterfaceContainer.appendChild(quizContainer);
+  quizContainer.appendChild(timerElement);
+  quizContainer.appendChild(scoreContainer);
+  quizContainer.appendChild(questionContainer);
+  questionContainer.appendChild(hintContainer);
+  quizContainer.appendChild(nextQuestionButton);
 };
 
+// Step one initialize the quiz
 window.addEventListener('load', initializeQuiz);
