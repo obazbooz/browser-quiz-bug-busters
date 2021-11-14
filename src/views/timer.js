@@ -12,6 +12,7 @@ export const TimerOnFn = () => {
   timerElement = getDOMElement(TIMER_ID);
   timerElement.textContent =
     quizData.questions[quizData.currentQuestionIndex].timer;
+  timerOffFn();
   activeTimer = window.setInterval(counter, 1000);
 };
 // timer off
